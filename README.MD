@@ -3,8 +3,12 @@
 
 I have forked this version from https://github.com/Hartland/C64-Keyboard for two reasons:
 
-- design PCB to connect PS/2 keyboard with MT8808 and Arduino Micro Pro solution to C128D
+- design PCB to connect PS/2 keyboard with MT8808 and Arduino Micro Pro solution to C128D, directly to the keyboard port
 - provide symbolic, rather than positional, mapping for the keys
+
+Everything you need for this version is in PS2/C128_keyboard_MT8808 folder.
+
+I have cleaned up the code and added named key value defitions to the [keymap file](PS2/C128_keyboard_MT8808/Firmware/keymapping.h) for easier mapping.
 
 Have fun!
 
@@ -84,7 +88,7 @@ Add two wire connections that I forgot to put on PCB in version 1:
 
 ## TODOs
 
-To do in version 2:
+To do in PCB version 2:
 
 * connect C128 40/80 line (pin 24) to A0
 * connect C128 CAPS line (pin 25) to A1
