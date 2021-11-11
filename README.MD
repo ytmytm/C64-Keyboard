@@ -8,7 +8,7 @@ I have forked this version from https://github.com/Hartland/C64-Keyboard for two
 
 Everything you need for this version is in PS2/C128_keyboard_MT8808 folder.
 
-I have cleaned up the code and added named key value defitions to the [keymap file](PS2/C128_keyboard_MT8808/Firmware/keymapping.h) for easier mapping.
+I have cleaned up the code and added named key value definitions to the [keymap file](PS2/C128_keyboard_MT8808/Firmware/keymapping.h) for easier mapping.
 
 Have fun!
 
@@ -16,7 +16,7 @@ Have fun!
 
 ## Project cloning
 
-This project has external submodule with Arduino Micro Pro symbol and footprint.
+This project uses external submodule with Arduino Micro Pro symbol and footprint.
 
 Clone it with all submodules using:
 
