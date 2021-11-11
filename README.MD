@@ -1,3 +1,108 @@
+
+# C128 version
+
+I have forked this version from https://github.com/Hartland/C64-Keyboard for two reasons:
+
+- design PCB to connect PS/2 keyboard with MT8808 and Arduino Micro Pro solution to C128D
+- provide symbolic, rather than positional, mapping for the keys
+
+Have fun!
+
+-- Maciej 'YTM/Elysium' Witkowiak
+
+## Project cloning
+
+This project has external submodule with Arduino Micro Pro symbol and footprint.
+
+Clone it with all submodules using:
+
+```sh
+git clone --recurse-submodules https://github.com/ytmytm/C64-Keyboard.git
+```
+
+## PCB and schematic
+
+Use KiCad to open the project in PS2/C128_keyboard_MT8808/PCB folder.
+
+Ready for use Gerber files for circuit board v1.0 are in PS2/C128_keyboard_MT8808/PCB/gerber folder.
+
+## Firmware
+
+Use Arduino IDE to compile and flash the code from PS2/C128_keyboard_MT8808/Firmware folder.
+
+## C128 version circuit assembly
+
+Parts:
+
+* 26-wire flat ribbon cable
+* 26-pin ribbon cable connectors (male for PCB, female for crimping on the cable)
+* DE25 male crimp connector for ribbon cable
+* MT8808
+* Arduino Micro Pro
+* (optional) PS/2 socket
+* (optional) 28-pin and 24-pin sockets
+
+Assembly:
+
+* align red (first) wire with triangular mark on the female connector and crimp it
+* separate 26th wire and remove it from the cable, cut it off as close as possible to the already crimped connector
+* now the cable can be aligned and crimped in the DE25 connector; aligh red (first) wire with the mark on connector, confirm that it goes to pin 1
+* solder parts on the PCB, start with lowest profile components first (sockets, MT8808, male 26-pin connector)
+
+You can skip over transistor and resistor and connect pin 3 from the cable directly to Arduino pin 16 using a jumper 
+
+Add two wire connections that I forgot to put on PCB in version 1:
+
+* pin 24 to A0 (40/80 key)
+* pin 25 to A1 (CAPS key)
+
+## Keyboard mapping
+
+| C64/128 key | PS/2 key |
+|-------------|----------|
+| C=		  | Windows  |
+| RUN/STOP    | ESC, END, left ALT |
+| RESTORE     | TAB |
+| ARROW LEFT  | ` (tilde) |
+| ARROW UP    | ^ (SHIFT+6) |
+| @           | @ (SHIFT+2) |
+| DEL         | DEL, BACKSPACE |
+| CLR/HOME    | HOME |
+| *           | * (SHIFT+8) |
+| POUND       | \ |
+
+## Function keys
+
+| PS/2 key | action |
+|----------|--------|
+| F9       | symbolic keymap (default) |
+| F10      | positional keymap |
+| F11      | C128 CAPS toggle |
+| F12      | C128 40/80 toggle |
+| CAPS LOCK | SHIFT LOCK toggle |
+| SysRq    | reset MT8808 |
+
+## TODOs
+
+To do in version 2:
+
+* connect C128 40/80 line (pin 24) to A0
+* connect C128 CAPS line (pin 25) to A1
+* connect RESTORE line (pin 3) directly to pin 16, no need for transistor and resistor there
+* correct parts alignment so that mounting holes are not obscured
+* use PS/2 socket footprint
+* +5V jumper between Arduino VCC and +5V net (serial port, PS/2 port and DE25 pin 4)
+
+To do for MT8812/MT8816 version:
+
+* handle extra C128 keys using DE25 pins 21/22/23 (K0/K1/K2)
+
+To do for SEEDUINO version:
+
+* there is not enough pins, I/O expander or latch is needed
+
+# Original documentation follows
+
 ## C64 PS2/USB Keyboard
 
 
