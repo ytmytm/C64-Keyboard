@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name wemos-d1-mini)(type KiCad)(uri C:/Users/Maciej/Documents/Projects-shared/kicad-c128keyb/wemos-d1-mini-kicad/modules/wemos-d1-mini.pretty)(options "")(descr ""))
+  (lib (name promicro)(type KiCad)(uri C:/Users/Maciej/Documents/Projects-shared/kicad-c128keyb/ProMicroKiCad/promicro.pretty)(options "")(descr ""))
+)

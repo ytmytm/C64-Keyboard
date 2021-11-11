@@ -1,0 +1,3 @@
+[submodule "PS2/C128_KEYBOARD_MT8808/PCB/ProMicroKiCad"]
+	path = PS2/C128_KEYBOARD_MT8808/PCB/ProMicroKiCad
+	url = https://github.com/Biacco42/ProMicroKiCad.git

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name mt8808)(type Legacy)(uri ${KIPRJMOD}/libraries/lib/mt8808.lib)(options "")(descr ""))
+  (lib (name wemos_mini)(type Legacy)(uri ${KIPRJMOD}/wemos-d1-mini-kicad/libraries/wemos_mini.lib)(options "")(descr ""))
+  (lib (name promicro)(type Legacy)(uri ${KIPRJMOD}/ProMicroKiCad/promicro_library/promicro.lib)(options "")(descr ""))
+)
