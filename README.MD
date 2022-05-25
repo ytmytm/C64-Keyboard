@@ -34,7 +34,7 @@ Ready for use Gerber files for circuit board v1.0 are in PS2/C128_keyboard_MT880
 
 Use Arduino IDE to compile and flash the code from PS2/C128_keyboard_MT8808/Firmware folder.
 
-## C128 version circuit assembly
+## C128 PS/2 version circuit assembly
 
 Parts:
 
@@ -98,9 +98,11 @@ To do in PCB version 2:
 
 * connect C128 40/80 line (pin 24) to A0
 * connect C128 CAPS line (pin 25) to A1
-* connect RESTORE line (pin 3) directly to pin 16, no need for transistor and resistor there
+* connect RESTORE line (pin 3) directly to pin 16, no need for transistor and resistor there (true for 5V Arduino, certainly not for SEEDUINO)
 * correct parts alignment so that mounting holes are not obscured
 * use PS/2 socket footprint
+* use DB25 male socket footprint for direct connection
+* use 1x25 footprint for C64 compatibility
 * +5V jumper between Arduino VCC and +5V net (serial port, PS/2 port and DE25 pin 4)
 
 To do for MT8812/MT8816 version:
@@ -109,7 +111,8 @@ To do for MT8812/MT8816 version:
 
 To do for SEEDUINO version:
 
-* there is not enough pins, I/O expander or latch is needed
+* there is not enough pins, I/O expander or latch is needed, 74'595 is enough for this
+* 3x transistor + 3x 10K resistor for /RESTORE, 40/80 and CAPS required
 
 # Original documentation follows
 
