@@ -1,7 +1,7 @@
 /*
   C64keyboard.h - Commodore Keyboard library
 
-  Copyright (c) 2019 Hartland PC LLC
+  Copyright (c) 2022 Hartland PC LLC
   Written by Robert VanHazinga
 
 
@@ -106,7 +106,7 @@ void c64key(uint16_t k) {
     if (debug){debugkey(c,flags,kc);}
 
 // Ignore extended codes 
-    if (kc == 250){c=IGNORE_KEYCODE;}
+    if (kc == PS2_KEY_ACK){c=IGNORE_KEYCODE;}
     
     
 // MT reset function    
@@ -129,7 +129,7 @@ void c64key(uint16_t k) {
     if (kc == CAPSLOCK_KEY) {
       capslock = !capslock;
       digitalWrite (ANALOG_SW_DATA, capslock);
-      setswitch(39);
+      setswitch(C64_KEY_LSHIFT);
       c = IGNORE_KEYCODE; 
       }
 
@@ -147,18 +147,18 @@ void c64key(uint16_t k) {
 // Jump to end if key code is an ignored key
     if (c != IGNORE_KEYCODE) {
     // Differential shift conversion during key press
-   if (c >= 64 ) {
-      c -= 64;
+   if (c >= C64_MOD_SHIFT ) {
+      c -= C64_MOD_SHIFT;
       if (rshift || lshift) {
         digitalWrite (ANALOG_SW_DATA, LOW);
-        setswitch(25);
+        setswitch(C64_KEY_RSHIFT);
         digitalWrite (ANALOG_SW_DATA, LOW);
-        setswitch(39);   
+        setswitch(C64_KEY_LSHIFT);   
       }
       
      else {
         digitalWrite (ANALOG_SW_DATA, HIGH);
-        setswitch(39);
+        setswitch(C64_KEY_LSHIFT);
       }
       // Set cross switch key
       digitalWrite(ANALOG_SW_DATA, HIGH);
@@ -166,23 +166,23 @@ void c64key(uint16_t k) {
        if bitRead (flags,7){
       // Restore shift state to match keystate
       digitalWrite (ANALOG_SW_DATA, lshift);
-      setswitch(39);
+      setswitch(C64_KEY_LSHIFT);
       digitalWrite (ANALOG_SW_DATA, rshift);
-      setswitch(25);
+      setswitch(C64_KEY_RSHIFT);
       digitalWrite(ANALOG_SW_DATA, HIGH);
      }
    }
 // Shift key handling
      if bitRead (flags,6){
    
-      if (c == 25) {rshift = true;}
-      if (c == 39) {lshift = true;}
+      if (c == C64_KEY_RSHIFT) {rshift = true;}
+      if (c == C64_KEY_LSHIFT) {lshift = true;}
       }
   
     if bitRead (flags,7){
       digitalWrite(ANALOG_SW_DATA , LOW);
-        if (c==25) {rshift = false;}
-        if (c==39) {lshift = false;}
+        if (c==C64_KEY_RSHIFT) {rshift = false;}
+        if (c==C64_KEY_LSHIFT) {lshift = false;}
         }
         
   // Process normal keypress
