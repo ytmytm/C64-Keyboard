@@ -53,7 +53,8 @@ Assembly:
 * now the cable can be aligned and crimped in the DE25 connector; aligh red (first) wire with the mark on connector, confirm that it goes to pin 1
 * solder parts on the PCB, start with lowest profile components first (sockets, MT8808, male 26-pin connector)
 
-You can skip over transistor and resistor and connect pin 3 from the cable directly to Arduino pin 16 using a jumper 
+You can skip over transistor and resistor and connect pin 3 from the cable directly to Arduino pin 16 using a jumper.
+This part would be required on C64, but C128 has separate circuitry for RESTORE key, it's not tied directly to /NMI line.
 
 Add two wire connections that I forgot to put on PCB in version 1:
 
@@ -85,6 +86,11 @@ Add two wire connections that I forgot to put on PCB in version 1:
 | F12      | C128 40/80 toggle |
 | CAPS LOCK | SHIFT LOCK toggle |
 | SysRq    | reset MT8808 |
+
+## BUGS
+
+Left (right too?) SHIFT release must be *after* shifted key release. Otherwise the shifted key is stuck until exact the same sequence is entered again.
+It's quite annoying for '@' and ':'.
 
 ## TODOs
 
